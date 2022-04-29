@@ -9,8 +9,10 @@ public class Pistol : Weapon
     [SerializeField] private Projectile bulletPrefab;
     public int maxAmmo = 6;
     public int currentAmmo = 6;
+    public int Ammo = 0;
     public float reloadTime;
     private bool isReloading = false;
+    AudioSource audioData;
 
 
     protected override void StartShooting(XRBaseInteractor interactor)
@@ -19,7 +21,7 @@ public class Pistol : Weapon
         {
             return;
         }
-        if (currentAmmo <= 0)
+        if (currentAmmo <= 0 && Ammo > 0)
         {
             StartCoroutine(Reload());      
             return;
@@ -40,16 +42,26 @@ public class Pistol : Weapon
         yield return new WaitForSeconds(reloadTime );
 
         currentAmmo = maxAmmo;
-
+        Ammo = Ammo - maxAmmo;
         isReloading = false;
     }
     protected override void Shoot()
     {
-        currentAmmo --;
-        base.Shoot();
-        Projectile projectileInstance = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
-        projectileInstance.Init(this);
-        projectileInstance.Launch();
+        if (Ammo <= 0)
+        {
+            Debug.Log("No Ammo");
+        } else
+        {
+            currentAmmo--;
+            
+            base.Shoot();
+            audioData = GetComponent<AudioSource>();
+            audioData.Play(0);
+            Projectile projectileInstance = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+            projectileInstance.Init(this);
+            projectileInstance.Launch();
+        }
+        
     }
 
     protected override void StopShooting(XRBaseInteractor interactor)
