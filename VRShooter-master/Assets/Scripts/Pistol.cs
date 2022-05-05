@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
 
 
@@ -9,6 +11,7 @@ public class Pistol : Weapon
     [SerializeField] private Projectile bulletPrefab;
     public int maxAmmo = 6;
     public int currentAmmo = 6;
+    [SerializeField] public TMP_Text TextAmmo;
     public int Ammo = 0;
     public float reloadTime;
     private bool isReloading = false;
@@ -41,19 +44,20 @@ public class Pistol : Weapon
 
         yield return new WaitForSeconds(reloadTime );
 
-        currentAmmo = maxAmmo;
+        currentAmmo = maxAmmo;        
         Ammo = Ammo - maxAmmo;
+        TextAmmo.text = currentAmmo.ToString() + "/" + Ammo;
         isReloading = false;
     }
     protected override void Shoot()
     {
-        if (Ammo <= 0)
+        if (currentAmmo <= 0)
         {
             Debug.Log("No Ammo");
         } else
         {
             currentAmmo--;
-            
+            TextAmmo.text = currentAmmo.ToString() + "/" + Ammo;
             base.Shoot();
             audioData = GetComponent<AudioSource>();
             audioData.Play(0);
