@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class EnemySpawner : MonoBehaviour
 	[SerializeField] private float spawnInterval;
 	[SerializeField] private int maxEnemiesNumber;
 	[SerializeField] private Player player;
+	int Rand;
+	int Lenght = 4;
+	List<int> list = new List<int>();
+	private int ind = 1;
 
 	private List<EnemyAI> spawnedEnemies = new List<EnemyAI>();
 	private float timeSinceLastSpawn;
@@ -18,6 +23,22 @@ public class EnemySpawner : MonoBehaviour
 	private void Start()
 	{
 		timeSinceLastSpawn = spawnInterval;
+
+		list = new List<int>(new int[Lenght]);
+
+		for (int j = 1; j < Lenght; j++)
+		{
+			Rand = Random.Range(0, 4);
+
+			while (list.Contains(Rand))
+			{
+				Rand = Random.Range(0, 4);
+			}
+
+			list[j] = Rand;
+			print(list[j]);
+		}
+
 	}
 
 	private void Update()
@@ -37,8 +58,10 @@ public class EnemySpawner : MonoBehaviour
 	{
 		EnemyAI enemy = Instantiate(enemyPrefab, transform.position, transform.rotation);
 		int spawnPointindex = spawnedEnemies.Count % spawnPoints.Length;
-		enemy.Init(player, spawnPoints[spawnPointindex]);
+		enemy.Init(player, spawnPoints[list[ind]]);
 		spawnedEnemies.Add(enemy);
+		ind++;
+
 	}
 
 	

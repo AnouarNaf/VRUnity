@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,6 +19,8 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
     [SerializeField] private int maxShotsToTake;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float damage;
+    [SerializeField] public TMP_Text puntuation;
+    [SerializeField] public TMP_Text Timer;
     [Range(0, 100)]
     [SerializeField] private float shootingAccuracy;
 
@@ -31,8 +34,8 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
     private Player player;
     private Transform occupiedCoverSpot;
     private Animator animator;
-
     private float _health;
+    public int score;
     public float health
     {
         get
@@ -135,7 +138,22 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
     {
         health -= weapon.GetDamage();
         if (health <= 0)
+        {
             Destroy(gameObject);
+
+            
+             
+            if (puntuation.text == "Score")
+            {
+                puntuation.text = "100";
+
+            } else
+            {
+                puntuation.text = (Convert.ToInt32(puntuation.text) + 100).ToString();
+                Timer.text = (Convert.ToInt32(Timer.text) + 5).ToString();
+                ;
+            }
+        }
         ParticleSystem effect = Instantiate(bloodSplatterFX, contactPoint, Quaternion.LookRotation(weapon.transform.position - contactPoint));
         effect.Stop();
         effect.Play();
