@@ -150,8 +150,7 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
             } else
             {
                 puntuation.text = (Convert.ToInt32(puntuation.text) + 100).ToString();
-                Timer.text = (Convert.ToInt32(Timer.text) + 5).ToString();
-                ;
+                
             }
         }
         ParticleSystem effect = Instantiate(bloodSplatterFX, contactPoint, Quaternion.LookRotation(weapon.transform.position - contactPoint));

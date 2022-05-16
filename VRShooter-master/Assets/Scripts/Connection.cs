@@ -14,8 +14,9 @@ namespace DatabaseConnection
         public GameObject username;
         public GameObject password;
         public GameObject login;
-
         public Button btnLogin;
+
+        [SerializeField] public StringSO user;
 
 
         private string UserName;
@@ -70,6 +71,7 @@ namespace DatabaseConnection
                 string pass = Info["password"];            
 
                 if (Password == pass) {
+                    user.Value = UserName;
                     Debug.Log("uwu");
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 }

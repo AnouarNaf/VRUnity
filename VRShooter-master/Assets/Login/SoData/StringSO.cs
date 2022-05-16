@@ -4,11 +4,11 @@ using UnityEngine;
 
 [CreateAssetMenu]
 
-public class FloatSO : ScriptableObject
+public class StringSO : ScriptableObject
 {
-    [SerializeField] float user;
+    [SerializeField] string user;
 
-    public float Value
+    public string Value
     {
         get { return user; }
         set { user = value; }
