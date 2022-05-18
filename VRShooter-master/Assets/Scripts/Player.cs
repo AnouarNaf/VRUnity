@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class Player : MonoBehaviour
         health -= damage;
         Vida.text = health.ToString();
         Debug.LogError(string.Format("Player health: {0}",health));
+        if (health <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        }
     }
 
     public Vector3 GetHeadPosition()

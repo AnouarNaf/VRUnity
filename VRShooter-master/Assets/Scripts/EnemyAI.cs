@@ -23,19 +23,24 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
     [SerializeField] public TMP_Text Timer;
     [Range(0, 100)]
     [SerializeField] private float shootingAccuracy;
-
     [SerializeField] private Transform shootingPosition;
     [SerializeField] private ParticleSystem bloodSplatterFX;
+    [SerializeField] public IntSO user;
 
+    [Range(0.0f, 1.0f)]
+    public float AttackProbability = 0.5f;
     private bool isShooting;
     private int currentShotsTaken;
     private int currentMaxShotsToTake;
     private NavMeshAgent agent;
     private Player player;
+    public GameObject Player;
     private Transform occupiedCoverSpot;
     private Animator animator;
     private float _health;
     public int score;
+    public float AttackDistance = 10.0f;
+
     public float health
     {
         get
@@ -103,21 +108,38 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
 
     public void Shoot()
     {
-        bool hitPlayer = UnityEngine.Random.Range(0, 100) < shootingAccuracy;
 
-        if (hitPlayer)
+        float dist = Vector3.Distance(Player.transform.position, this.transform.position);
+        float random = UnityEngine.Random.Range(0, 100);
+        float random1 = UnityEngine.Random.Range(0.0f, 1.0f);
+        if (random1 > (1.0f - AttackProbability) && dist < AttackDistance)
         {
+            bool isHit = random < shootingAccuracy;
+
+            if (isHit)
+            {
+                player.TakeDamage(damage);
+
+            }
+        }
+        // The higher the accuracy is, the more likely the player will be hit
+        
+        /*if (hitPlayer)
+        {
+            
             RaycastHit hit;
             Vector3 direction = player.GetHeadPosition() - shootingPosition.position;
             if (Physics.Raycast(shootingPosition.position, direction, out hit))
             {
+                
                 Player player = hit.collider.GetComponentInParent<Player>();
                 if (player)
                 {
+                    Debug.Log("ENTRA!!!!!!!!!!!!");
                     player.TakeDamage(damage);
                 }
             }
-        }
+        }*/
         currentShotsTaken++;
         if (currentShotsTaken >= currentMaxShotsToTake)
         {
@@ -140,17 +162,15 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
         if (health <= 0)
         {
             Destroy(gameObject);
-
-            
              
             if (puntuation.text == "Score")
             {
                 puntuation.text = "100";
-
+                user.Value = Convert.ToInt32(puntuation.text);
             } else
             {
                 puntuation.text = (Convert.ToInt32(puntuation.text) + 100).ToString();
-                
+                user.Value = Convert.ToInt32(puntuation.text);
             }
         }
         ParticleSystem effect = Instantiate(bloodSplatterFX, contactPoint, Quaternion.LookRotation(weapon.transform.position - contactPoint));

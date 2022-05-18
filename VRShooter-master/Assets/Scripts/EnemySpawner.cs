@@ -36,7 +36,6 @@ public class EnemySpawner : MonoBehaviour
 			}
 
 			list[j] = Rand;
-			print(list[j]);
 		}
 
 	}
