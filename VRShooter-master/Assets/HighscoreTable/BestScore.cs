@@ -66,6 +66,7 @@ public class BestScore : MonoBehaviour
                 JSONArray Arrai = Info.AsArray;
 
                 int scores = Arrai[i]["puntuation"];
+                
                 string users = Arrai[i]["userName"];
 
                 yield return scores;
