@@ -3620,9 +3620,10 @@ MonoBehaviour:
   - {fileID: 1205977048}
   - {fileID: 227093789}
   - {fileID: 1302001129}
+  - {fileID: 527322873}
   enemyPrefab: {fileID: 7437324312891652394}
-  spawnInterval: 5
-  maxEnemiesNumber: 3
+  spawnInterval: 3
+  enemies: {fileID: 11400000, guid: 3890ad6b971589c4892fad3240143d17, type: 2}
   player: {fileID: 667022474}
 --- !u!4 &335185447
 Transform:
@@ -3640,6 +3641,7 @@ Transform:
   - {fileID: 1205977048}
   - {fileID: 227093789}
   - {fileID: 1302001129}
+  - {fileID: 527322873}
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6139,6 +6141,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 505636078}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &527322872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 527322873}
+  m_Layer: 0
+  m_Name: Point(5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &527322873
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527322872}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.55, y: 0, z: -23.78}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 335185447}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &535137659
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8039,6 +8072,7 @@ MonoBehaviour:
   health: 100
   head: {fileID: 1075783023}
   Vida: {fileID: 1531573600}
+  Score: {fileID: 1251550885}
 --- !u!114 &667022475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11949,9 +11983,10 @@ MonoBehaviour:
   - {fileID: 455550148}
   - {fileID: 1760623295}
   - {fileID: 1566991270}
+  - {fileID: 1990139618}
   enemyPrefab: {fileID: 7437324312891652394}
-  spawnInterval: 5
-  maxEnemiesNumber: 3
+  spawnInterval: 3
+  enemies: {fileID: 11400000, guid: 3890ad6b971589c4892fad3240143d17, type: 2}
   player: {fileID: 667022474}
 --- !u!4 &911156941
 Transform:
@@ -11969,6 +12004,7 @@ Transform:
   - {fileID: 455550148}
   - {fileID: 1760623295}
   - {fileID: 1566991270}
+  - {fileID: 1990139618}
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -26684,6 +26720,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1983071466}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1990139617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1990139618}
+  m_Layer: 0
+  m_Name: Point(5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1990139618
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990139617}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.72, y: 0.106, z: -15.61}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 911156941}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1994350009
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29408,7 +29475,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3228808670429727066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.16, y: 2.201, z: -13.12}
+  m_LocalPosition: {x: -1.16, y: 2.201, z: -18.206}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -32252,6 +32319,7 @@ MonoBehaviour:
   shootingPosition: {fileID: 4616090897221361}
   bloodSplatterFX: {fileID: 19886758, guid: 8c27aeead6d968e4ba986702d6b84335, type: 3}
   user: {fileID: 11400000, guid: daec918c47b91fc4c9f5dd0ed7beb865, type: 2}
+  EnemiesDefeated: {fileID: 11400000, guid: 88e0933e6a3d4074c8c7362c1eec1ed6, type: 2}
   AttackProbability: 0.5
   Player: {fileID: 667022473}
   score: 0

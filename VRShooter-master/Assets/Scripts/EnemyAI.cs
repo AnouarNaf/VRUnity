@@ -21,11 +21,13 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
     [SerializeField] private float damage;
     [SerializeField] public TMP_Text puntuation;
     [SerializeField] public TMP_Text Timer;
+
     [Range(0, 100)]
     [SerializeField] private float shootingAccuracy;
     [SerializeField] private Transform shootingPosition;
     [SerializeField] private ParticleSystem bloodSplatterFX;
     [SerializeField] public IntSO user;
+    [SerializeField] public EnemiesSO EnemiesDefeated;
 
     [Range(0.0f, 1.0f)]
     public float AttackProbability = 0.5f;
@@ -41,6 +43,11 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
     public int score;
     public float AttackDistance = 10.0f;
 
+    void Start()
+    {
+        gameObject.tag = "Music";
+        EnemiesDefeated.Value = 0;
+    }
     public float health
     {
         get
@@ -59,6 +66,7 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
         agent = GetComponent<NavMeshAgent>();
         animator.SetTrigger(RUN_TRIGGER);
         _health = startingHealth;
+        
     }
 
     public void Init(Player player, Transform coverSpot)
@@ -162,15 +170,19 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
         if (health <= 0)
         {
             Destroy(gameObject);
-             
+            EnemiesDefeated.Value = EnemiesDefeated.Value + 1;
+            Debug.Log("Enemics derrotats " + EnemiesDefeated.Value);
             if (puntuation.text == "Score")
             {
                 puntuation.text = "100";
                 user.Value = Convert.ToInt32(puntuation.text);
+                
             } else
             {
                 puntuation.text = (Convert.ToInt32(puntuation.text) + 100).ToString();
                 user.Value = Convert.ToInt32(puntuation.text);
+               
+
             }
         }
         ParticleSystem effect = Instantiate(bloodSplatterFX, contactPoint, Quaternion.LookRotation(weapon.transform.position - contactPoint));

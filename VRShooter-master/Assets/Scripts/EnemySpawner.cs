@@ -10,10 +10,11 @@ public class EnemySpawner : MonoBehaviour
 	[SerializeField] private Transform[] spawnPoints;
 	[SerializeField] private EnemyAI enemyPrefab;
 	[SerializeField] private float spawnInterval;
-	[SerializeField] private int maxEnemiesNumber;
+	private int maxEnemiesNumber;
+	[SerializeField] public EnemiesSO enemies;
 	[SerializeField] private Player player;
 	int Rand;
-	int Lenght = 4;
+	int Lenght = 5;
 	List<int> list = new List<int>();
 	private int ind = 1;
 
@@ -22,17 +23,18 @@ public class EnemySpawner : MonoBehaviour
 
 	private void Start()
 	{
+		maxEnemiesNumber = enemies.Value;
 		timeSinceLastSpawn = spawnInterval;
 
 		list = new List<int>(new int[Lenght]);
 
 		for (int j = 1; j < Lenght; j++)
 		{
-			Rand = Random.Range(0, 4);
+			Rand = Random.Range(0, 5);
 
 			while (list.Contains(Rand))
 			{
-				Rand = Random.Range(0, 4);
+				Rand = Random.Range(0, 5);
 			}
 
 			list[j] = Rand;

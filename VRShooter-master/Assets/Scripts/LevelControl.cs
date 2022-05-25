@@ -34,6 +34,10 @@ public class LevelControl : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 5);
     }
+    public void doNext()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+    }
     public void doExitGame()
     {
         Application.Quit();
