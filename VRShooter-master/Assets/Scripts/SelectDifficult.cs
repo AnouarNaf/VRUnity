@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class SelectDifficult : MonoBehaviour
 {
     [SerializeField] public EnemiesSO enemies;
+    public void Start()
+    {
+    }
 
     public void GoEasy()
     {

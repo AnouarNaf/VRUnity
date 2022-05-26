@@ -31,15 +31,6 @@ namespace DatabaseConnection
         void Start()
         {
 
-          
-
-
-           
-
-
-           
-
-
         }
 
         void Update()
@@ -72,10 +63,6 @@ namespace DatabaseConnection
             form.AddField("name", Name);
             form.AddField("surname", Surname);
             form.AddField("mail", Email);
-
-
-
-            Debug.Log("hola");
 
 
             UnityWebRequest www = UnityWebRequest.Post("http://172.24.3.236:5001/manaiapi/Jugador", form);

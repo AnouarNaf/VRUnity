@@ -4373,3 +4373,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies: {fileID: 11400000, guid: 3890ad6b971589c4892fad3240143d17, type: 2}
+  user: {fileID: 11400000, guid: d541cd93fb5215b479d635c10cd98fc0, type: 2}

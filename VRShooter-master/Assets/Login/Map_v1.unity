@@ -8160,6 +8160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: {fileID: 63891440}
+  seconds: {fileID: 11400000, guid: 68503865b9a604442aa87290848df954, type: 2}
   secondLeft: 120
   takingAway: 0
 --- !u!1001 &669155176
@@ -32318,11 +32319,10 @@ MonoBehaviour:
   shootingAccuracy: 20
   shootingPosition: {fileID: 4616090897221361}
   bloodSplatterFX: {fileID: 19886758, guid: 8c27aeead6d968e4ba986702d6b84335, type: 3}
-  user: {fileID: 11400000, guid: daec918c47b91fc4c9f5dd0ed7beb865, type: 2}
+  score: {fileID: 11400000, guid: 11625ed0a16315040b4231390d064a77, type: 2}
   EnemiesDefeated: {fileID: 11400000, guid: 88e0933e6a3d4074c8c7362c1eec1ed6, type: 2}
   AttackProbability: 0.5
   Player: {fileID: 667022473}
-  score: 0
   AttackDistance: 10
 --- !u!4 &7448171462275631825
 Transform:

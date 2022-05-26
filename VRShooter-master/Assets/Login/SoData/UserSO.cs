@@ -4,7 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu]
 
-public class StringSO : ScriptableObject
+public class UserSO : ScriptableObject
 {
     [SerializeField] string user;
 

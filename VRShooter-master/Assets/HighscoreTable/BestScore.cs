@@ -61,7 +61,6 @@ public class BestScore : MonoBehaviour
 
                     default: rankString = rank + "th"; break;
                 }
-                Debug.Log(rank);
                 JSONNode Info = JSON.Parse(llistaUrl.downloadHandler.text);
                 JSONArray Arrai = Info.AsArray;
 
@@ -73,11 +72,6 @@ public class BestScore : MonoBehaviour
                 yield return users;
 
 
-                Debug.Log(users);
-                Debug.Log(scores);
-                //Debug.Log(score);
-                //Debug.Log(user);
-
                 scoreHSvariable.Find("positionText").GetComponent<Text>().text = rankString;
 
                 scoreHSvariable.Find("scoreText").GetComponent<Text>().text = scores.ToString();
@@ -85,7 +79,6 @@ public class BestScore : MonoBehaviour
                 scoreHSvariable.Find("userText").GetComponent<Text>().text = users;
 
             }
-            //Debug.Log("Form upload complete!");
            
         }
 

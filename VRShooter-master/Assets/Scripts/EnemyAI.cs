@@ -26,8 +26,9 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
     [SerializeField] private float shootingAccuracy;
     [SerializeField] private Transform shootingPosition;
     [SerializeField] private ParticleSystem bloodSplatterFX;
-    [SerializeField] public IntSO user;
+    [SerializeField] public ScoreSO score;
     [SerializeField] public EnemiesSO EnemiesDefeated;
+    
 
     [Range(0.0f, 1.0f)]
     public float AttackProbability = 0.5f;
@@ -40,13 +41,11 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
     private Transform occupiedCoverSpot;
     private Animator animator;
     private float _health;
-    public int score;
     public float AttackDistance = 10.0f;
 
     void Start()
     {
         gameObject.tag = "Music";
-        EnemiesDefeated.Value = 0;
     }
     public float health
     {
@@ -127,27 +126,10 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
             if (isHit)
             {
                 player.TakeDamage(damage);
-
+                puntuation.text = (Convert.ToInt32(puntuation.text) - 10).ToString();
+                score.Value = Convert.ToInt32(puntuation.text);
             }
         }
-        // The higher the accuracy is, the more likely the player will be hit
-        
-        /*if (hitPlayer)
-        {
-            
-            RaycastHit hit;
-            Vector3 direction = player.GetHeadPosition() - shootingPosition.position;
-            if (Physics.Raycast(shootingPosition.position, direction, out hit))
-            {
-                
-                Player player = hit.collider.GetComponentInParent<Player>();
-                if (player)
-                {
-                    Debug.Log("ENTRA!!!!!!!!!!!!");
-                    player.TakeDamage(damage);
-                }
-            }
-        }*/
         currentShotsTaken++;
         if (currentShotsTaken >= currentMaxShotsToTake)
         {
@@ -175,14 +157,11 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
             if (puntuation.text == "Score")
             {
                 puntuation.text = "100";
-                user.Value = Convert.ToInt32(puntuation.text);
-                
+                score.Value = Convert.ToInt32(puntuation.text);
             } else
             {
                 puntuation.text = (Convert.ToInt32(puntuation.text) + 100).ToString();
-                user.Value = Convert.ToInt32(puntuation.text);
-               
-
+                score.Value = Convert.ToInt32(puntuation.text);
             }
         }
         ParticleSystem effect = Instantiate(bloodSplatterFX, contactPoint, Quaternion.LookRotation(weapon.transform.position - contactPoint));

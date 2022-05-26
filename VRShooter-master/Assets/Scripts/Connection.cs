@@ -16,7 +16,7 @@ namespace DatabaseConnection
         public GameObject login;
         public Button btnLogin;
 
-        [SerializeField] public StringSO user;
+        [SerializeField] public UserSO user;
 
 
         private string UserName;
@@ -52,8 +52,6 @@ namespace DatabaseConnection
             WWWForm form = new WWWForm();
             form.AddField("username", UserName);
             //form.AddField("password", Password);
-            Debug.Log("hola");
-
             UnityWebRequest www = UnityWebRequest.Get("http://172.24.3.236:5001/manaiapi/Jugador/userdata/" + UserName);
 
             yield return www.Send();
@@ -72,8 +70,7 @@ namespace DatabaseConnection
 
                 if (Password == pass) {
                     user.Value = UserName;
-                    Debug.Log("uwu");
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
                 }
                 
             }
