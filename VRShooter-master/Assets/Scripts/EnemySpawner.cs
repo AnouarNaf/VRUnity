@@ -16,7 +16,7 @@ public class EnemySpawner : MonoBehaviour
 	int Rand;
 	int Lenght = 5;
 	List<int> list = new List<int>();
-	private int ind = 1;
+	private int ind = 0;
 
 	private List<EnemyAI> spawnedEnemies = new List<EnemyAI>();
 	private float timeSinceLastSpawn;

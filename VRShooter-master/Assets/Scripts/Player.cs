@@ -10,11 +10,14 @@ public class Player : MonoBehaviour
     [SerializeField] Transform head;
     [SerializeField] public TMP_Text Vida;
     [SerializeField] public TMP_Text Score;
+    AudioSource audioData;
 
     public void TakeDamage(float damage)
     {
         health -= damage;
         Vida.text = health.ToString();
+        audioData = GetComponent<AudioSource>();
+        audioData.Play(0);
         Debug.LogError(string.Format("Player health: {0}",health));
         if (health <= 0)
         {

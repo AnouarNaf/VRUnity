@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyAI : MonoBehaviour, ITakeDamage
@@ -28,7 +29,8 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
     [SerializeField] private ParticleSystem bloodSplatterFX;
     [SerializeField] public ScoreSO score;
     [SerializeField] public EnemiesSO EnemiesDefeated;
-    
+    [SerializeField] public EnemiesSO Dificult;
+
 
     [Range(0.0f, 1.0f)]
     public float AttackProbability = 0.5f;
@@ -92,6 +94,7 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
         {
             RotateTowardsPlayer();
         }
+        
     }
     private IEnumerator InitializeShootingCO()
     {
@@ -115,13 +118,26 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
 
     public void Shoot()
     {
-
+        Debug.Log(EnemiesDefeated.Value + "" + Dificult.Value);
+        
         float dist = Vector3.Distance(Player.transform.position, this.transform.position);
         float random = UnityEngine.Random.Range(0, 100);
         float random1 = UnityEngine.Random.Range(0.0f, 1.0f);
         if (random1 > (1.0f - AttackProbability) && dist < AttackDistance)
         {
             bool isHit = random < shootingAccuracy;
+            Debug.Log("entra 1");
+
+            if (isHit)
+            {
+                player.TakeDamage(damage);
+                puntuation.text = (Convert.ToInt32(puntuation.text) - 10).ToString();
+                score.Value = Convert.ToInt32(puntuation.text);
+            }
+        } else if (random1 > (1.0f - AttackProbability) && dist < (AttackDistance * 1.5))
+        {
+            bool isHit = random < shootingAccuracy/2;
+            Debug.Log("entra 2");
 
             if (isHit)
             {
@@ -162,6 +178,10 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
             {
                 puntuation.text = (Convert.ToInt32(puntuation.text) + 100).ToString();
                 score.Value = Convert.ToInt32(puntuation.text);
+            }
+            if (EnemiesDefeated.Value == Dificult.Value * 4)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
         ParticleSystem effect = Instantiate(bloodSplatterFX, contactPoint, Quaternion.LookRotation(weapon.transform.position - contactPoint));

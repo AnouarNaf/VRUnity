@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25efd8bd0f0a44d4294f071f6c70251b, type: 3}
   m_Name: Defeated
   m_EditorClassIdentifier: 
-  enemies: 2
+  enemies: 0

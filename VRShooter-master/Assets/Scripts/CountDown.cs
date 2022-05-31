@@ -38,7 +38,7 @@ public class CountDown : MonoBehaviour
         time.text = secondLeft.ToString();
         if (secondLeft <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         takingAway = false;
     }

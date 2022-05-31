@@ -60,6 +60,7 @@ namespace DatabaseConnection
             if (www.error != null)
             {
                 Debug.Log("Error " + www.error);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
             }
             else
             {

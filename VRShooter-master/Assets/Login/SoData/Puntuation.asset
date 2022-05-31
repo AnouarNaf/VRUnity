@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad153f34571e82146b3fbba6a3da8962, type: 3}
   m_Name: Puntuation
   m_EditorClassIdentifier: 
-  score: 150
+  score: 0

@@ -1397,9 +1397,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1662491651}
-        m_TargetAssemblyTypeName: Login, Assembly-CSharp
-        m_MethodName: goLogin
+      - m_Target: {fileID: 1662491657}
+        m_TargetAssemblyTypeName: LevelControl, Assembly-CSharp
+        m_MethodName: doExitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3153,7 +3153,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Difficult
+  m_text: Hard
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3631,6 +3631,7 @@ GameObject:
   - component: {fileID: 1662491653}
   - component: {fileID: 1662491652}
   - component: {fileID: 1662491651}
+  - component: {fileID: 1662491657}
   m_Layer: 5
   m_Name: Canvas (1)
   m_TagString: Untagged
@@ -3751,6 +3752,18 @@ RectTransform:
   m_AnchoredPosition: {x: -2.168, y: 1.68}
   m_SizeDelta: {x: 2, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1662491657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662491650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e597352e1a474f14c956f55be5ca4e52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1831690195
 GameObject:
   m_ObjectHideFlags: 0
@@ -4373,4 +4386,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies: {fileID: 11400000, guid: 3890ad6b971589c4892fad3240143d17, type: 2}
-  user: {fileID: 11400000, guid: d541cd93fb5215b479d635c10cd98fc0, type: 2}

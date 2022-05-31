@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a5510826a0c354daa56b1a55af5140, type: 3}
   m_Name: time
   m_EditorClassIdentifier: 
-  puntuation: 200
+  puntuation: 0
