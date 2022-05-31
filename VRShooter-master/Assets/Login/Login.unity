@@ -1190,7 +1190,7 @@ MonoBehaviour:
   password: {fileID: 841488736}
   login: {fileID: 122442472}
   btnLogin: {fileID: 122442473}
-  user: {fileID: 11400000, guid: 545a0835e1e44c747939b94dd704acc0, type: 2}
+  user: {fileID: 11400000, guid: 89c5bf15e9b2e9245a62964325a8a29f, type: 2}
 --- !u!114 &299154321
 MonoBehaviour:
   m_ObjectHideFlags: 0

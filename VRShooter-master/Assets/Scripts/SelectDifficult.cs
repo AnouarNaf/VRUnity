@@ -6,8 +6,11 @@ using UnityEngine.SceneManagement;
 public class SelectDifficult : MonoBehaviour
 {
     [SerializeField] public EnemiesSO enemies;
+    [SerializeField] public USUARI user;
     public void Start()
     {
+        user.Value = user.Value;
+        Debug.Log(user.Value);
     }
 
     public void GoEasy()

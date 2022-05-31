@@ -8437,6 +8437,7 @@ MonoBehaviour:
   head: {fileID: 1075783023}
   Vida: {fileID: 1531573600}
   Score: {fileID: 1251550885}
+  user: {fileID: 11400000, guid: 89c5bf15e9b2e9245a62964325a8a29f, type: 2}
 --- !u!114 &667022475
 MonoBehaviour:
   m_ObjectHideFlags: 0

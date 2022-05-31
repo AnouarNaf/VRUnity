@@ -13,7 +13,7 @@ public class ShowFinalPuntuation : MonoBehaviour
     [SerializeField] public TMP_Text enemies;
     [SerializeField] public EnemiesSO EnemiesDefeated;
     [SerializeField] public EnemiesSO difficulty;
-    [SerializeField] public UserSO user;
+    [SerializeField] public USUARI user;
     [SerializeField] public ScoreSO score;
     [SerializeField] public IntSO time;
 
@@ -28,22 +28,24 @@ public class ShowFinalPuntuation : MonoBehaviour
     {
         switch (difficulty.Value)
         {
-            case 4:
+            case 5:
                 Puntuation = score.Value * 3;
                 break;
-            case 3:
+            case 4:
                 Puntuation = score.Value * 2;
                 break;
             default:
+                Puntuation = score.Value * 1;
                 break;
         }
-        Debug.Log("UwU");
+        Debug.Log(EnemiesDefeated.Value + " " + difficulty.Value + " " + user.Value + " " + score.Value + " " + time.Value);
         puntuation.text = "Score:    " + Puntuation;
         second.text = "Time:    " + time.Value.ToString();
         enemies.text = "Enemies Defeateds:    " + EnemiesDefeated.Value.ToString();
         UserName = user.Value;
         seconds = time.Value;
         defeated = EnemiesDefeated.Value;
+        
         StartCoroutine(SendGame(UserName, Puntuation, seconds, defeated));
     }
     private void Update()

@@ -157,7 +157,7 @@ MonoBehaviour:
   enemies: {fileID: 1804046953}
   EnemiesDefeated: {fileID: 11400000, guid: 88e0933e6a3d4074c8c7362c1eec1ed6, type: 2}
   difficulty: {fileID: 11400000, guid: 3890ad6b971589c4892fad3240143d17, type: 2}
-  user: {fileID: 11400000, guid: 545a0835e1e44c747939b94dd704acc0, type: 2}
+  user: {fileID: 11400000, guid: 89c5bf15e9b2e9245a62964325a8a29f, type: 2}
   score: {fileID: 11400000, guid: 11625ed0a16315040b4231390d064a77, type: 2}
   time: {fileID: 11400000, guid: 68503865b9a604442aa87290848df954, type: 2}
 --- !u!4 &252963423

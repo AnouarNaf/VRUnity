@@ -10,8 +10,13 @@ public class Player : MonoBehaviour
     [SerializeField] Transform head;
     [SerializeField] public TMP_Text Vida;
     [SerializeField] public TMP_Text Score;
+    [SerializeField] public USUARI user;
     AudioSource audioData;
-
+    private void Start()
+    {
+        user.Value = user.Value;
+        Debug.Log(user.Value);
+    }
     public void TakeDamage(float damage)
     {
         health -= damage;
